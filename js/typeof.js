@@ -1,4 +1,4 @@
-// 1.type of能判断哪些类型
+// 1.type of能判断哪些类型（问题 1）
 // 所有的值类型
 let a
 console.log(typeof a) //undefined
@@ -17,3 +17,5 @@ console.log(typeof {
     x: 100
 }) //object
 console.log('--------------------------------')
+
+

@@ -18,7 +18,7 @@ var obj1 = {
 // console.log(obj1.address.city) //'shanghai'   
 
 /**
- * 深拷贝
+ * 深拷贝(问题三)
  * @param {Object} obj 要拷贝对象
  */
 function deepClone(obj = {}) {

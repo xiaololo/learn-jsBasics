@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>2-3、变量计算</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * 类型转换
+         */
+        // 1、字符串拼接
+        console.log(100 + 10) //110
+        //字符换+数字：数字转换成字符串
+        console.log(100 + '10') //10010
+        //字符换+布尔：布尔值转换成字符串
+        console.log(true + '10') //true10
+
+        // 2、== 运算符
+        console.log(100 == '100') //true
+        console.log(0 == '') //true
+        console.log(0 == false) //true
+        console.log('' == false) //true
+        console.log(null == undefined) //true
+
+        // const obj = {
+        //     x: 100
+        // }
+        // if (obj.a == null) {}
+        // 相当于
+        // if (obj.a === null || obj.a === undefinde) {}
+        // 除了==null之外，其他一律用===
+        // 问题延伸：js中==和===区别、何时使用===，何时使用==（问题 1）
+        //==会做隐式类型转换 === 先比较是否是同一类型，若不是返回false,不继续进行比较
+
+
+        // 3、if语句
+        // truly变量：!!a===true的变量 (经过两步非运算为true的变量)
+        // falsely变量：!!a===false的变量
+        // 以下是falsely变量，除此之外都是truely变量
+        console.log(!!0 === false) 
+        console.log(!!NaN === false) 
+        console.log(!!'' === false) 
+        console.log(!!null === false) 
+        console.log(!!undefined === false) 
+        console.log(!!false === false) 
+        
+        // 3、逻辑运算
+        console.log(10 && 0) //0 --&& 遇到falsely变量直接返回
+        console.log('' || 'abc') //'abc' -||遇到truely变量直接返回
+
+    </script>
+</body>
+
+</html>
