@@ -3,13 +3,23 @@ console.log('deepClone')
  * 深拷贝
  */
 
-var obj1 = {
-    age: 20,
-    name: 'xxx',
-    address: {
-        city: 'baijign'
+// var obj1 = {
+//     age: 20,
+//     name: 'xxx',
+//     address: {
+//         city: 'baijign'
+//     },
+//     arr: ['w', 'wf', 'sd']
+// }
+let a = {
+    name: '小明',
+    age: 21,
+    grade: {
+        language: 78,
+        math: 81,
+        english: 99,
+        science: 94
     },
-    arr: ['w', 'wf', 'sd']
 }
 //直接赋值给对象obj2=>把obj1的对象地址赋值给obj2
 // const obj2 = obj1
@@ -43,10 +53,11 @@ function deepClone(obj = {}) {
     //返回结果
     return result
 }
-var obj3 = deepClone(obj1)
-console.log(obj3)
-obj3.address.city = 'shanghai'
-console.log(obj1.address.city) //'shanghai'  
+var b = deepClone(a)
+b.name = '小花'
+b.grade.english = 9
+console.log('a', a)
+console.log('b', b)
 
 
 // 浅拷贝： 也就是拷贝A对象里面的数据， 但是不拷贝A对象里面的子对象

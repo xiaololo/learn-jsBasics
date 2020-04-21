@@ -9,9 +9,61 @@
 <body>
     <script>
         // 2-1值类型和引用类型
-        
-        // 总结值类型和引用类型的区别(问题三)
+
         //堆栈模型
+        // ## 问题：
+        // typeof能判断哪些类型
+        // 何时使用=== 何时使用==
+        // 总结值类型和引用类型的区别
+        // 手写深拷贝
+
+        // ##知识点
+        // 变量类型、变量计算
+        // 值类型和引用类型
+        // typeof运算符
+        // 深拷贝
+
+
+
+        // 存储机制、赋值机制、拷贝机制 耗时
+
+
+        // 常见的值类型
+        // string number boolen 
+        // 赋值
+        // let a = {
+        //     name: 'xiaoming',
+        //     age: 21,
+        //     grade: {
+        //         language: 60,
+        //         math: 81,
+        //         english: 99,
+        //         science: 94
+        //     },
+        // }
+        // let b = a
+        // b.name = 'xiaowang'
+        // b.grade.language = 90
+        // console.log('a', a)
+        // console.log('b', b)
+
+        // 浅拷贝、深拷贝
+        let a = {
+            name: '小明',
+            age: 21,
+            grade: {
+                language: 78,
+                math: 81,
+                english: 99,
+                science: 94
+            },
+        }
+        let b = {}
+        Object.assign(b,a)
+        b.name = '小花'
+        b.grade.english = 9
+        console.log('a', a)
+        console.log('b', b)
     </script>
 </body>
 
