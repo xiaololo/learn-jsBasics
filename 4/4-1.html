@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4-1、什么是作用域？什么是自由变量？</title>
+</head>
+<body>
+    <div>
+      <h2>第四章</h2>
+      <h5>JS基础-作用域和闭包</h5>
+      <div>
+          题目: <br>
+            this的不同应用场景，如何取值？*****  
+            手写bind函数
+            实际开发中闭包的应用场景，举例
+            创建10个a标签，点击时弹对应的序号
+      </div>
+      <div>
+          知识点: <br>
+          作用域和自有变量
+          闭包
+          this
+          创建10个a标签，点击时弹对应的序号
+      </div>
+    </div>
+    
+    <script>
+        // 创建10个a标签，点击时弹对应的序号
+        // for (let i = 0; i < 10; i++) {
+        //     var a
+        //     a=document.createElement('a')
+        //     a.innerHTML=i
+        //     a.addEventListener('click',function(e){
+        //         e.preventDefault()//取消默认事件
+        //         alert(i)
+        //     })
+        //     document.body.appendChild(a)
+        // }
+        
+        // 作用域
+        let a=0
+        function fn1(){
+            let a1=100
+            function fn2(){
+                let a2=200
+                function fn3(){
+                    let a3=300
+                    return a+a1+a2+a3
+                }
+                return fn3()
+            }
+            return fn2()
+        }
+        console.log(fn1())//600
+        // 作用域：
+        // 全局作用域: 变量未受到函数的约束，在全局可以使用，如windows对象，document对象
+        // 函数作用域: 在函数中定义的变量只能在当前函数中有效
+        // 块级作用域（ES6）:在某个{}声明的，只在当前{}有效
+
+        // 自由变量：
+        // 一个在当前作用域中没有定义，但是被使用了
+        // 向上级作用域，一层一层一席寻找，直至找到为止
+        // 如果到全局作用域都没找到则报错 xx is not defined
+        // 实例中，在fn3中，a、a1、a2均为自由变量
+
+
+        
+    </script>
+    <!-- <script src="./js/jquery-demo.js"></script> -->
+</body>
+</html>
