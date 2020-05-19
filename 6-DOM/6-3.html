@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6-3、DOM节点操作</title>
+</head>
+
+<body>
+    <div>
+        <h2>第六章 JS-Web-API-DOM</h2>
+        <div>
+            前言：
+            vue和React框架应用广泛，封装了DOM操作
+            注重基础，不要局限于框架
+        </div>
+        <div>
+            <h4>题目</h4>
+            DOM属于哪种数据结构
+            DOM操作常用的API
+            attr 和 property的区别
+            一次性插入多个DOM节点，考虑性能
+        </div>
+        <div>
+            <h4>知识点</h4>
+            DOM本质
+            ->DOM节点操作
+            DOM结构操作
+            DOM性能
+        </div>
+        <p>22</p>
+        <p>12</p>
+        <p>32</p>
+    </div>
+
+    <script>
+        // DOM节点操作
+        // -获取DOM节点
+        // 根据id获取
+        const div1=document.getElementById("div1")//元素
+        // 根据标签获取
+        const divList=document.getElementsByTagName('div')//集合
+        // 根据类名获取
+        const conList=document.getElementsByClassName('.con') //集合
+        // 通过css选择器获取
+        const pList=document.querySelectorAll('p') //集合
+
+        
+        // -DOM节点的property是指可以获取DOM元素，通过JS的属性操作的形式
+        const pList=document.querySelectorAll('p')
+        const p =pList[0]
+        console.log(p.style.width)//获取样式
+        p.style.width='100px'//修改样式
+        console.log(p.className)//获取class
+        p.className='p1'//修改 class
+        console.log(p.nodeName)// p 节点名称
+        console.log(p.nodeType)//1 节点类型 1 元素节点 2属性节点
+
+        
+
+        // DOM节点的attribute 通过setAttribute()、getAttribute()直接修改html标签的结构和属性
+        const pList=document.querySelectorAll('p')
+        const p=pList[0]
+        p.setAttribute('data-name','imooc')
+        p.getAttribute('data-name')
+        p.setAttribute('style','font-size:30px')
+        p.getAttribute('style')
+
+        // property和attribute区别
+        // property 
+        // 是对DOM元素的JS变量做修改 
+        // 修改对象属性，不会提现到html结构中
+        // attribute
+        // 对DOM元素的节点属性做修改
+        // 修改 html属性，会改变html结构
+        // 两者都会引起DOM结构重新渲染
+
+    </script>
+    <!-- <script src="./closureApply.js"></script> -->
+</body>
+
+</html>
