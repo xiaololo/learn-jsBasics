@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5-4、异步相关面试题</title>
+</head>
+
+<body>
+    <div>
+        <h2>第五章 JS基础-异步 【三座大山之三】</h2>
+        <div>
+            <h4>题目</h4>
+            同步和异步的区别是什么？
+            ->手写用Promise加载一张图片
+            前端使用异步的场景有哪些？
+            <!-- <image class="" src="" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+                
+            </image> -->
+        </div>
+        <div>
+            <h4>知识点</h4>
+            单线程和异步
+            应用场景
+            callback hell(回调地狱) 和 Promise
+        </div>
+    </div>
+
+    <script>
+        // 异步
+        console.log(1)
+        setTimeout(() => {
+            console.log(2)
+        }, 1000);
+        console.log(3)
+        setTimeout(() => {
+            console.log(4)
+        }, 0);
+        console.log(5)
+        // 13542
+    </script>
+    <!-- 手写用Promise加载一张图片 -->
+    <!-- <script src="./promiseDemo.js"></script> -->
+</body>
+
+</html>
