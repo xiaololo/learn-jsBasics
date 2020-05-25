@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6-5、如何优化DOM操作的性能</title>
+</head>
+
+<body>
+    <div>
+        <h2>第六章 JS-Web-API-DOM</h2>
+        <div>
+            前言：
+            vue和React框架应用广泛，封装了DOM操作
+            注重基础，不要局限于框架
+        </div>
+        <div>
+            <h4>题目</h4>
+            DOM属于哪种数据结构
+            DOM操作常用的API
+            attr 和 property的区别
+            一次性插入多个DOM节点，考虑性能
+        </div>
+        <div>
+            <h4>知识点</h4>
+            DOM本质
+            DOM节点操作
+            DOM结构操作
+            ->DOM性能
+        </div>
+        <ul id="list">
+
+        </ul>
+    </div>
+
+    <script>
+        // DOM性能优化
+        // > 背景:DOM操作占用CPU比较多，导致浏览器重新渲染，耗时，避免频繁的DOM操作
+        
+        
+        // 1.对DOM查询做缓存
+        // 不缓存DOM查询结果
+        for (let i = 0; i < document.getElementsByTagName('p').length; i++) {
+           //每次循环，都会计算length,频繁进行DOM操作
+        }
+        //缓存 DOM 查询结果
+        const pList=document.getElementsByTagName('p')
+        const length =pList.length
+         for (let i = 0; i < length; i++) {
+           //缓存length,只进行一次DOM查询
+        }
+
+        // 2.将频繁的操作改为一次性操作
+        const list=document.getElementById('list')
+        for (let i = 0; i < 10; i++) {
+            const li=document.createElement('li')
+            li.innerHTML=`List item ${i}`
+            list.appendChild(li) //插入 10 次
+        }
+        //通过创建一个新的空白的文档片段( DocumentFragment)，最后一次插入
+        const list=document.getElementById('list')
+        const frag=document.createDocumentFragment()
+        for (let i = 0; i < 10; i++) { 
+            const li=document.createElement('li') 
+            li.innerHTML=`List item ${i}`
+            frag.appendChild(li) //插入 10 次
+        }
+        //都完成后，再传DOM树中
+        list.appendChild(frag)
+
+        // DocumentFragments描述
+        // DocumentFragments 是DOM节点。它们不是主DOM树的一部分。通常的用例是创建文档片段，将元素附加到文档片段，然后将文档片段附加到DOM树。在DOM树中，文档片段被其所有的子元素所代替。
+        // 因为文档片段存在于内存中，并不在DOM树中，所以将子元素插入到文档片段时不会引起页面回流（对元素位置和几何上的计算）。因此，使用文档片段通常会带来更好的性能。
+
+
+    </script>
+    <!-- <script src="./closureApply.js"></script> -->
+</body>
+
+</html>

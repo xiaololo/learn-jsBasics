@@ -33,4 +33,4 @@ console.log(divChildNodesP) //[p,p,p]
 
 
 // -删除子节点 removeChild()
-div1.removeChild(divChildNodesP[0])//删除第一个p元素
+div1.removeChild(divChildNodesP[0])// 删除第一个p元素
