@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7-1、BOM操作相关面试题</title>
+</head>
+
+<body>
+    <div>
+        <h2>第七章 JS-Web-API-BOM</h2>
+        <h4>BOM(Browser Object Model) 浏览器对象模型</h4>
+        <div>
+            <h4>题目</h4>
+            如何识别浏览器的类型 360
+            分析拆解URL的各个部分
+        </div>
+        <div>
+            <h4>知识点</h4>
+            navigator 浏览器的信息
+            screen 屏幕的信息
+            location 地址的信息
+            history 前进后退的信息
+        </div>
+    </div>
+
+    <script>
+        //navigator 
+        // Navigator 对象包含有关浏览器的信息。
+        // navigator.userAgent 返回由客户机发送服务器的user-agent 头部的值
+        const ua=navigator.userAgent
+        const isChrome =ua.indexOf('Chrome')
+        console.log(ua) // Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36
+        console.log(isChrome)
+        //screen
+        // Screen 对象包含有关客户端显示屏幕的信息。
+        console.log(screen)
+        console.log(screen.width) //返回显示器屏幕的宽度。
+        console.log(screen.height)//返回显示器屏幕的高度。
+        //location
+        // Location 对象包含有关当前 URL 的信息。Location 对象是 Window 对象的一个部分，可通过 window.location 属性来访问。
+        console.log(location.href) // file:///Users/xiaolo/learn/js_basics/7-BOM/7-1.html?id=2#00 完整的 URL。
+        console.log(location.protocol) // 当前 URL 的协议 file:
+        console.log(location.host) // 当前 URL 的域名:
+        console.log(location.pathname)// 当前 URL 的路径部分 /Users/xiaolo/learn/js_basics/7-BOM/7-1.html
+        console.log(location.search) //从问号 (?) 开始的 URL ?id=2
+        console.log(location.hash) //从井号 (#) 开始的 URL（锚） #00
+
+        // history History 对象包含用户（在浏览器窗口中）访问过的 URL。History 对象是 window 对象的一部分，可通过 window.history 属性对其进行访问。
+        history.back() //加载 history 列表中的前一个 URL。
+        history.forward()//加载 history 列表中的下一个 URL。
+        history.go()//加载 history 列表中的某个具体页面。
+
+
+
+    </script>
+</body>
+
+</html>
