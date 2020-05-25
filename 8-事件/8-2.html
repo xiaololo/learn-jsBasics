@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8-2、事件代理</title>
+</head>
+
+<body>
+    <div>
+        <h2>第八章 JS-Web-API事件</h2>
+        <div>
+            <h4>题目</h4>
+            ->编写一个通用的事件监听函数
+            ->描述事件冒泡的过程
+            ->无限下拉的图片列表，如何监听每个图片的点击
+        </div>
+        <div>
+            <h4>知识点</h4>
+            事件绑定
+            事件冒泡
+            ->事件代理
+        </div>
+        <!-- 事件代理 -->
+        <button id="btn1">按钮</button>
+        <div id="div3">
+            <a href="#">a1</a><br>
+            <a href="#">a2</a><br>
+            <a href="#">a3</a><br>
+            <a href="#">a4</a><br>
+            <button>加载更多...</button>
+        </div>
+    </div>
+
+    <script>
+        // 描述事件冒泡的过程
+        // 基于DOM树形结构
+        // 事件顺着触发元素往上冒泡
+        // 应用场景：事件代理
+
+        // 动态数据列表里，监听每条数据的点击
+        // 事件代理
+        // 用e.target获取触发元素
+        // 用matches来判断是否触发元素
+
+    </script>
+    <script src="./event2.js"></script>
+</body>
+
+</html>
