@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10-1|2、如何理解cookie|cookie、localStorage sessionStorage的区别</title>
+</head>
+
+<body>
+    <div>
+        <h2>第十章 JS-Web-API-存储</h2>
+        <div>
+            <h4>题目</h4>
+            cookie、localStorage sessionStorage的区别
+        </div>
+        <div>
+            <h4>知识点</h4>
+            cookie、
+            localStorage、sessionStorage
+        </div>
+    </div>
+
+    <script>
+        // cookie 
+        // 本身用于浏览器和 server通讯
+        // 被“借用”到本地存储
+        // 使用document.cookie='...'来修改
+        document.cookie='name=xiaoming;expires='+oDate
+        // 缺点：
+        // 存储大小，最大 4kB
+        // http请求时需要发送到服务器，增大请求数据量
+        // 只能用document.cookie='...'，太过简陋
+
+        // localStorage、sessionStorage
+        // HTML5专门为存储设计的，最大可存5M
+        // API简单易用 setItem getItem
+        localStorage.setItem('a',100)
+        localStorage.getItem('a')
+        sessionStorage.setItem('b',100)
+        sessionStorage.getItem('b')
+
+        // localStorage数据永久存储，除非代码或手动删除
+        // sessionStorage数据只存在于当前会话，浏览器关闭则清空
+
+
+        容量
+        API易用性
+        是否跟随http请求发送出去
+
+
+
+    </script>
+    <!-- <script src="./closureApply.js"></script> -->
+</body>
+
+</html>

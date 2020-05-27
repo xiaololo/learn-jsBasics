@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9-2 3、跨域-同源策略、Jsonp Cros</title>
+</head>
+
+<body>
+    <div>
+        <h2>第九章 JS—Web-API-Ajax</h2>
+        <div>
+            <h4>题目</h4>
+            手写一个简易的ajax
+            跨域的常用实现方式 ***
+        </div>
+        <div>
+            <h4>知识点</h4>
+            XMLHttprequest
+            状态码
+            跨域：同源策略，跨域解决方案
+        </div>
+        <div>
+            <h4>跨域</h4>
+            什么是跨域？（同源策略）
+            JSONP
+            CORS(服务端支持)
+        </div>
+    </div>
+
+    <script>
+        // 同源策略
+        // **ajax请求**时，**浏览器***要求当前网页和server必须同源（安全）
+        // 同源：协议、域名、端口三者必须一致
+
+
+        // 加载图片 css js可无视同源策略
+        // <link/><script>可以使用CDN,CDN一般都是外域 
+        // <script>可以实现jsonp
+
+        //跨域
+        // 所有跨域，都必须经过server端允许和配合
+        // 未经server端允许就实现跨域，说明浏览器有漏洞，危险信号
+
+        // 跨域方式 1.jsonp 原理
+        // <script>可以绕过跨域限制、
+        // 服务端可以任意动态拼接数据返回
+        // Jquery封装
+        $.ajax({
+            url:'http://localhost:8082/jsonp.json',
+            dataType:'jsonp',
+            jsonpCallback:'callback',
+            success:function(data){
+                console.log(data)
+            }
+        })
+        // 跨域方式 2.CORS-服务端设置 http header
+        response.setHeader("Access-Control-Allow-Origin","http://localhost:8080")//可供哪个源跨域
+        response.setHeader("Access-Control-Allow-Headers","X-Custom-Header")//实际请求将携带的自定义请求首部字段
+        response.setHeader("Access-Control-Allow-Methods","GET, POST, PUT")//服务端支持的请求方法
+        response.setHeader("Access-Control-Allow-Credentials","true")//接受跨域的cookie
+
+    </script>
+    <script>
+        window.callback=function(data){
+            console.log(data)
+        }
+    </script>
+    <script src="http://localhost:8082/jsonp.js"></script>
+</body>
+
+</html>
