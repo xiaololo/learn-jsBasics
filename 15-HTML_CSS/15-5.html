@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盒模型</title>
+    <style>
+        .bfc{
+            overflow: hidden;/* 触发元素BFC */
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h4>HTML</h4>
+        <div>
+            如何理解HTML语义化？
+            默认情况下，哪些是块级元素，哪些是内联元素？
+        </div>
+        <h4>CSS</h4>
+        <div>
+            ---------模块-----------
+            布局
+                盒模型的宽度如何计算
+                margin纵向重叠的问题
+                ->margin负值得问题
+                ->BFC理解和应用 ***
+                float布局的问题(圣杯布局 双飞翼布局)，
+                以及清除浮动clearfix手写
+                float画筛子
+            定位
+                absolute和relative分别依据什么定位？
+                居中对齐有哪些实现方式？
+            图文样式
+                line-height的继承问题
+            响应式
+                rem是什么？
+                如何实现响应式？
+
+            CSS3
+                css3动画
+        </div>
+        <div class="bfc" style="background: #f1f1f1;">
+            <div style="float:left;width:100px;height:100px;background: pink;"></div>
+            <p>文字文字文字福克斯</p>
+        </div>
+        
+    </div>
+
+    <script>
+        // margin负值问题
+        // margin-top和margin-left负值，元素向上、向左移动
+        // margin-right负值，右侧元素左移，自身不受影响
+        // margin-bottom负值，下方元素左移，自身不受影响
+
+        // BFC理解和应用
+        // BFC Block format context 块级格式化上下文
+        // 一块独立渲染区域，内部元素的渲染不会影响边界以外的元素
+
+        // 形成BFC的常见条件：
+        // 浮动元素：float 除 none 以外的值
+        // 绝对定位元素：position是absolute或fixed
+        // overflow 除了 visible 以外的值 (hidden、auto、scroll)
+        // display 为 inline-block、table-cells、flex
+
+        // BFC常见应用
+        // 清除浮动
+        
+    </script>
+</body>
+
+</html>

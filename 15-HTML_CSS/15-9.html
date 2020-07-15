@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        
+    </style>
+</head>
+
+<body>
+    <div>
+        <h4>HTML</h4>
+        <div>
+            如何理解HTML语义化？
+            默认情况下，哪些是块级元素，哪些是内联元素？
+        </div>
+        <h4>CSS</h4>
+        <div>
+            ---------模块-----------
+            布局
+                盒模型的宽度如何计算
+                margin纵向重叠的问题
+                margin负值得问题
+                BFC理解和应用 ***
+                float布局的问题(圣杯布局 双飞翼布局)，
+                以及清除浮动clearfix手写
+                flex画筛子
+            定位
+                ->absolute和relative分别依据什么定位？
+                ->居中对齐有哪些实现方式？
+            图文样式
+                line-height的继承问题
+            响应式
+                rem是什么？
+                如何实现响应式？
+
+            CSS3
+                css3动画
+        </div>
+        <!-- flex画筛子 -->
+        <div class="box">
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+        <!--  -->
+
+
+    </div>
+
+    <script>
+        // absolute和relative分别依据什么定位？
+        // relative 依据自身定位
+        // absolute 依据最近一层的定位元素定位
+        // 定位元素: absolute relative fixed,若找不到则定位到 body
+
+        // 居中对齐有哪些实现方式？
+        // 水平居中
+        // inline元素：text-align:center
+        // block元素：margin:auto
+        // absolute元素：left:50% +margin-left负值
+        // 垂直居中
+        // inline元素：line-height:height
+        // absolute元素：top:50% +margin-top负值
+        // absolute元素：transform(-50%,-50%)
+        // absolute元素：top,left,bottom,right=0 + margin：auto
+    </script>
+</body>
+
+</html>

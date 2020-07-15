@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        #container {
+            padding-left:200px;
+            padding-right:150px;
+            overflow: hidden;
+        }
+
+        #center {
+            background-color: #ccc;
+            width: 100%;
+        }
+
+        #left {
+            position: relative;
+            background-color: pink;
+            width: 200px;
+            margin-left: -100%;
+            right:200px;
+        }
+
+        #right {
+            background-color: yellow;
+            width: 150px;
+            margin-right: -150px;
+        }
+
+        .float {
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h4>HTML</h4>
+        <div>
+            如何理解HTML语义化？
+            默认情况下，哪些是块级元素，哪些是内联元素？
+        </div>
+        <h4>CSS</h4>
+        <div>
+            ---------模块-----------
+            布局
+            盒模型的宽度如何计算
+            margin纵向重叠的问题
+            margin负值得问题
+            BFC理解和应用 ***
+            ->float布局的问题(圣杯布局 双飞翼布局)，
+            ->以及清除浮动clearfix手写
+            float画筛子
+            定位
+            absolute和relative分别依据什么定位？
+            居中对齐有哪些实现方式？
+            图文样式
+            line-height的继承问题
+            响应式
+            rem是什么？
+            如何实现响应式？
+
+            CSS3
+            css3动画
+        </div>
+        <!-- 圣杯布局 -->
+        <div style="background-color: aquamarine;">header</div>
+        <div id="container">
+            <div id="center" class="float">center</div>
+            <div id="left" class="float">left</div>
+            <div id="right" class="float">right</div>
+        </div>
+        <div style="background-color: aquamarine;">footer</div>
+        <!-- 双飞翼布局 -->
+
+
+    </div>
+
+    <script>
+        // 如何实现圣杯布局 双飞翼布局？
+
+        // 圣杯布局和双飞翼布局目的
+        // 三栏布局，中间一栏最先加载渲染（内容最重要）
+        // 两侧内容固定，中间内容随着宽度自适应 
+
+        // 技术总结：
+        // 使用float布局
+        // 两侧使用margin负值，以便和中间内容横向重叠
+        // 为了防止中间内容被覆盖，一个用padding一个用margin
+    </script>
+</body>
+
+</html>
