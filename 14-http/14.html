@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14-1 http</title>
+</head>
+
+<body>
+    <div>
+        <h2>第四章 http</h2>
+        <div>
+            <h4>题目</h4>
+            http常见的状态码有哪些？
+            什么是Restful API?
+            http常见的header有哪些？
+            描述http的缓存机制 *****
+        </div>
+        状态码
+        methods
+        Restful API
+        header
+        http缓存策略
+        
+    </div>
+
+    <script>
+        // http常见的状态码有哪些？
+        // 状态码分类
+        // 1** 服务端收到请求
+        // 2** 请求成功，如 200
+        // 3** 重定向，如302
+        // 4** 客户端错误，如 404
+        // 5** 服务端错误，如 500
+
+        // 常见状态码
+        // 200 成功
+        // 301 永久重定向（浏览器自动处理，每次直接访问location的新地址）
+        // 302 临时重定向（浏览器自动处理，每次先访问老地址，再重定位到location的新地址）
+        // 304 资源未被修改
+        // 404 资源未被找到
+        // 403 没有权限
+        // 500 服务器错误
+        // 504 网关超时
+
+        // 关于协议和规范
+
+        // ----------------------------
+        // 传统的methods
+        // get获取服务端的数据
+        // post向服务端提交数据
+
+        // 现在的methods
+        // get获取数据
+        // post新建数据
+        // patch/put 更新数据
+        // delete 删除数据
+
+        // 什么是Restful API?--------------
+        // 一种新的API设计方法
+
+        // 传统的API设计：
+        // 把每个url当做一个功能 **
+        // /api/list?pageIndex=2
+
+        // Restful API设计：把每个url当做一个唯一的资源 **
+        // /api/list/2
+
+        // ----------------------------
+        // http常见的header有哪些？
+        // 常见的Request Headers
+        // Accept 浏览器可接收的数据格式
+        // Accept-Encoding 浏览器可接收的压缩算法，如gzip
+        // Accept-Language 浏览器可接收的语言，如zh-CN
+        // Connection:keep-alive 一次TCP连接重复使用
+        // cookie 
+        // Host 请求的域名
+        // User-Agent (UA) 浏览器信息
+        // Content-Type 发送数据的格式(post)，如application/json
+
+
+        // 常见的Response Headers
+        // Content-Type 返回数据的格式，如application/json
+        // Content-length 返回数据的大小，多少字节
+        // Content-Encoding 返回数据的压缩算法，如gzip
+        // Set-Cookie 服务端改cookie
+
+        // 缓存相关header
+        // Cache-Control 在Response Headers中,控制强制缓存的逻辑
+        // Expires 在Response Headers中，设置缓存过期，已被Catch-Control代替
+        // Last-Modified 在Response Headers中,标记此文件在服务器端最后被修改的时间
+        // Last-Modified : Fri , 12 May 2006 18:53:33 GMT
+        // If-Modified-Since 在Request Headers中，询问该时间之后文件是否有被修改过
+        // If-Modified-Since : Fri , 12 May 2006 18:53:33 GMT
+        // Etag 在Response Headers中，标示URL对象是否改变
+        // ETag:"50b1c1d4f775c61:df3"
+        // If-None-Match 在Request Headers中，ETag没改变，则返回状态304，然后不返回
+        // If-None-Match: W / "50b1c1d4f775c61:df3"
+
+        // ----------------------------
+        // http缓存
+// https://blog.csdn.net/wsymcxy/article/details/82154397
+        // 为什么缓存？
+        // cpu计算页面加载很快 mm级别
+        // 网络请求相对于cpu计算页面加载更耗时
+        // 优化：
+        // 减少网络请求的体积和数量
+
+        // 哪些资源可以被缓存？
+        // 静态资源：js css img
+
+
+
+
+        // http缓存策略（强制缓存+协商缓存）*****
+
+        // 强制缓存 cache-Control -------------------------
+        // 在 Response Headers中
+        // 控制强制缓存的逻辑
+        // 例如 Cache-Control:max-age=31536000(秒)=1年
+
+        // Catch-Control的值
+        // max-age 设置缓存的最大过期时间 **
+        // no-catch 有本地缓存，不用强制缓存，向服务端请求 **
+        // no-store 不让服务端做缓存，完全不缓存，
+        // private 发起请求的浏览器才能使用返回数据的缓存
+        // public 这个HTTP请求它返回的内容所经过的任何路径中，包括中间的一些HTTP 代理服务器以及发出请求的客户端浏览器，都可以进行对返回内容的缓存操作
+
+        // Expires
+        // 同在Response Headers中，设置缓存过期，已被Catch-Control代替
+
+
+        // 协商缓存（对比缓存）-----------------------------
+        // 服务端缓存策略-服务端判断资源是否用缓存
+        // 服务端判断客户端资源是否跟服务端资源一样，一致则返回 304，负责返回 200和最新资源
+
+        //  流程图：
+        // 资源标识----
+        // 在Response Headers中：
+        // Last-Modified 资源最后被修改的时间
+        // Etag 资源的唯一标识,资源内容改变，Etag值改变
+
+        // 以Last-Modified为资源标识协商缓存的过程
+        // 第一次请求：
+        // 服务器端的返回状态200，请求的资源，
+        // 同时有一个Last-Modified的属性标记此文件在服务器端最后被修改的时间。
+        // 第二次请求：
+        // 根据HTTP协议的规定，浏览器会向服务器传送If-Modified-Since报头，询问该时间之后文件是否有被修改过：
+        // 如果服务器端的资源没有变化，则自动返回 HTTP 304（Not Changed.）状态码，内容为空，这样就节省了传输数据量。
+        // 当服务器端代码发生改变或者重启服务器时，则重新发出资源，返回和第一次请求时类似。
+
+
+        // 以Etag为资源标识协商缓存的过程
+        // 第一次请求：
+        // 服务器 返回状态码200、请求的资源和一堆Header，
+        // 包括Etag(例如"2e681a-6-5d044840")属性标识唯一资源.
+        // 第二次请求：
+        // 客户端发送一个If-None-Match头，这个头的内容就是第一次请求时服务器返回的Etag：2e681a-6-5d044840
+        // 服务器判断发送过来的Etag和计算出来的Etag匹配
+        // If-None-Match为False资源没有变化，返回304，客户端继续使用本地缓存；
+
+
+
+        // 优先使用Etage:
+        // Last-Modified只能精确到秒级
+        // 如果资源被重复生成，而内容不变，则Etag更精确
+
+
+        // http缓存概述*****
+
+        // 刷新操作方式，对缓存的影响---------------------
+        // 正常操作：地址输入url,跳转链接，前进后退
+        // 手动刷新：f5，点击刷新按钮，点击菜单刷新
+        // 强制刷新：shift+commond+R
+
+        // 正常操作：强制缓存有效 有效
+        // 手动刷新：失效 有效
+        // 强制刷新：失效 失效
+    </script>
+</body>
+
+</html>
