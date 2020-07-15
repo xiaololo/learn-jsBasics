@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5-2、event-loop</title>
+</head>
+
+<body>
+    <div>
+        <h2>第⑤章 JS基础-异步进阶</h2>
+       
+        <div>
+            <h4>知识点</h4>
+             --> event-loop
+             Promise进阶
+             async/awiat
+             微任务/宏任务
+        </div>
+        <div>
+            <h4>面试题</h4>
+            问答题：
+            -->请描述event-loop（时间循环/时间轮询）机制，可画图
+            什么是 微任务/宏任务，两者区别？
+            Promise 有哪三种状态，如何变化？
+            场景题：
+            promise then和catch的连接
+            async/awiat语法
+            promise和setTimeout的顺序 ***** 
+            promise和setTimeout async/await顺序问题
+        </div>
+    </div>
+
+    <script>
+    //     event loop是什么？
+    //    JS是单线程运行的
+    //    异步要基于回调来实现
+    //    event loop就是异步回调的实现原理
+
+        // 三个容器：
+        // Browser console 浏览器打印窗口
+        // Call Stack 调用栈
+        // Web APIs 处理定时或异步的API
+        // Event Loop 事件轮询机制
+        // Callback Queue 回调函数队列
+
+        console.log('Hi');
+        setTimeout(function cb1() {
+            console.log('callback!')
+        }, 5000);
+        console.log('Bye')
+
+        
+        // 同步代码，一行一行放在 Call Stack 执行
+        // 遇到异步计时器setTimeout ,将计数器函数放在 Web APIs ，等待执行
+        // 所有的同步代码执行完，当callStack空了 同步执行结束，
+        // 浏览器启动 Event Loop 机制，
+        // 开始轮询 Callback Queue 
+        // 等到setTimeout计数器将函数cb1()推到 Callback Queue
+        // Event Loop 机制在 Callback Queue 中找到了cb1()函数，
+        // 并将函数cb1() 推到了 Call Stack 中执行函数内容
+
+        // 请描述event-loop（时间循环/时间轮询）机制，可画图 *****
+        // 总结 event loop 过程---
+        // 同步代码，一行一行放在 Call Stack 执行
+        // 遇到异步，先“记录”下，等待时机（定时、网络请求等）
+        // 时机到了，就移动到 Callback Queue 
+        // 如果 Call Stack 为空（即同步代码执行完），Event Loop 开始工作
+        // 轮询查找 Callback Queue，如有则移动到 Call Stack 执行
+        // 然后继续轮询查找（永动机一样）
+
+        
+
+
+
+
+
+    </script>
+</body>
+
+</html>

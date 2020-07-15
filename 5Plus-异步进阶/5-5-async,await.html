@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5-5-async,await</title>
+</head>
+
+<body>
+    <div>
+        <h2>第⑤章 JS基础-异步进阶</h2>
+       
+        <div>
+            <h4>知识点</h4>
+             event-loop
+             Promise进阶
+             --> async/awiat *****
+             微任务/宏任务
+        </div>
+        <div>
+            <h4>面试题</h4>
+            问答题：
+            请描述event-loop（时间循环/时间轮询）机制，可画图
+            什么是 微任务/宏任务，两者区别？
+            Promise 有哪三种状态，如何变化？
+            场景题：
+            promise then和catch的连接
+            async/awiat语法
+            promise和setTimeout的顺序 ***** 
+            promise和setTimeout async/await顺序问题
+        </div>
+    </div>
+
+    <script>
+        // 背景：
+        // 异步回调：callback hell 
+        // Promise than catch 链式调用，也是基于回调函数
+        // async/await是用同步语法写异步 【见./async1.js】
+
+        // async/await与Promise的关系 【见./async2.js】 ******
+        // 执行async函数，返回的是Promise对象
+        // await相当于Promise的then
+        // try..catch可捕获异常，代替了Promise的catch
+
+        // async/await是语法糖，异步的本质【见./async3.js】
+        // async/await是语法层面解决异步的回调
+        // JS还是单线程，还是得有异步，还得是基于event loop
+        // async/await只是一个语法糖
+
+        // 总结：
+        // async/await解决了异步的回调
+        // async/await与Promise的关系
+        // for of的使用
+
+    </script>
+    <!-- <script src="./async1.js"></script> -->
+    <!-- <script src="./async2.js"></script> -->
+    <script src="./async3.js"></script>
+</body>
+
+</html>

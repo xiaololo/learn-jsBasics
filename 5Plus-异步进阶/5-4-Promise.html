@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5-1</title>
+</head>
+
+<body>
+    <div>
+        <h2>第⑤章 JS基础-异步进阶</h2>
+       
+        <div>
+            <h4>知识点</h4>
+             event-loop
+            --> Promise进阶
+             async/awiat
+             微任务/宏任务
+        </div>
+        <div>
+            <h4>面试题</h4>
+            问答题：
+            请描述event-loop（时间循环/时间轮询）机制，可画图
+            什么是 微任务/宏任务，两者区别？
+            Promise 有哪三种状态，如何变化？
+            场景题：
+            promise then和catch的连接
+            async/awiat语法
+            promise和setTimeout的顺序 ***** 
+            promise和setTimeout async/await顺序问题
+
+        </div>
+
+    </div>
+
+    <script>
+        // --Promise三种状态：
+        // pending 过程中
+        // resolved 已成功
+        // rejected 已拒绝
+        
+
+        // --状态的表现与变化 【见./promise.js ./promise2.js】
+        // 状态表现
+        // pending状态，不会触发then和catch
+        // resolved状态，会触发后续的then回调函数
+        // rejected状态，会触发后续的catch的回调函数
+        // 状态变化：
+        // pending--> resolved 成功
+        // pending--> rejected 失败
+        // 变化不可逆
+
+        // then和catch对状态的影响：【见./promise3.js】 ******
+        // then正常返回resolved状态的Promise，里面有报错则返回rejected状态的Promise
+        // catch正常返回resolved状态的Promise，里面有报错则返回rejected状态的Promise
+
+
+        // 面试题：【见./promise4.js】*****
+
+
+    </script>
+    <!-- <script src="./promise.js"></script> -->
+    <!-- <script src="./promise2.js"></script> -->
+    <!-- <script src="./promise3.js"></script> -->
+    <script src="./promise4.js"></script>
+</body>
+
+</html>

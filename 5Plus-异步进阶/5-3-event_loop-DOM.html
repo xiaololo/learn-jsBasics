@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5-2、event-loop</title>
+</head>
+
+<body>
+    <div>
+        <h2>第⑤章 JS基础-异步进阶</h2>
+       
+        <div>
+            <h4>知识点</h4>
+            --> event-loop
+             Promise进阶
+             async/awiat
+             微任务/宏任务
+        </div>
+        <div>
+            <h4>面试题</h4>
+            问答题：
+            请描述event-loop（时间循环/时间轮询）机制，可画图
+            什么是 微任务/宏任务，两者区别？
+            Promise 有哪三种状态，如何变化？
+            场景题：
+            promise then和catch的连接
+            async/awiat语法
+            promise和setTimeout的顺序 ***** 
+            promise和setTimeout async/await顺序问题
+        </div>
+        <button id="btn">提交</button>
+    </div>
+
+    <script> 
+        // 三个容器：
+        // Browser console 浏览器打印窗口
+        // Call Stack 调用栈
+        // Web APIs 处理定时或异步的API
+
+        // Event Loop 事件轮询
+        // Callback Queue 回调函数队列
+
+        console.log('Hi');
+        $('#btn1').click(function(e){
+            console.log('button clicked!')
+        })
+        setTimeout(function cb1() {
+            console.log('callback!')
+        }, 5000);
+        console.log('Bye')  
+        // 同步代码，一行一行放在 Call Stack 执行
+        // 遇到点击事件 ,将点击事件的函数放在 Web APIs ，等待执行
+        // 所有的同步代码执行完，当callStack空了 同步执行结束，
+        // 浏览器启动 Event Loop 机制，
+        // 开始轮询 Callback Queue 
+        // 当用户触发点击事件，将Web APIs的 函数推到 Callback Queue
+        // Event Loop 机制在 Callback Queue 中找到了函数，
+        // 并将函数 推到了 Call Stack 中执行函数内容
+
+        // 异步（setTimeout、ajax）等回调，基于Event Loop实现
+        // DOM事件也使用回调，基于Event Loop实现
+    </script>
+</body>
+
+</html>

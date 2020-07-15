@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5-7</title>
+</head>
+
+<body>
+    <div>
+        <h2>第⑤章 JS基础-异步进阶</h2>
+       
+        <div>
+            <h4>知识点</h4>
+             event-loop
+             Promise进阶
+             async/awiat
+             for...of
+             --> 微任务/宏任务
+        </div>
+        <div>
+            <h4>面试题</h4>
+            问答题：
+            请描述event-loop（时间循环/时间轮询）机制，可画图
+            什么是 微任务/宏任务，两者区别？
+            Promise 有哪三种状态，如何变化？
+            场景题：
+            promise then和catch的连接
+            async/awiat语法
+            promise和setTimeout的顺序 ***** 
+            promise和setTimeout async/await顺序问题
+        </div>
+        <div id="container"></div>
+
+    </div>
+
+    <script>
+        // 宏任务 macroTask 和微任务 microTask----------------
+        // 什么是宏任务，什么是微任务？
+        // 宏任务：setTimeout、setInterval, Ajax，DOM事件
+        // 微任务：Promise async/await
+        // 微任务执行时机比宏任务要早
+
+        // 为什么微任务执行时机比宏任务要早?--------------------
+
+        // 宏任务、微任务和DOM渲染的关系？【macro-micro2.js】--------
+        // JS是单线程的，而且和DOM渲染共用一个线程
+        // JS执行的时候，得留一下时机供ODM渲染
+
+        // 宏任务：DOM渲染后触发，如setTimeout
+        // 微任务：DOM渲染前触发，如Promise
+
+    
+
+        // 宏任务、微任务和DOM渲染，在Event Loop的过程？------------
+        // 1.在Call Stack空闲时（即每次轮询结束），同步任务执行完
+        // 2.执行当前的微任务
+        // 3.尝试DOM渲染
+        // 4.触发 Event Loop，执行callback Queue里的宏任务
+
+
+
+        // 微任务/宏任务的根本区别--------------
+        // 微任务是ES6语法规定的,
+        // 遇到微任务（如Promise）时,
+        // 会等待时机放在 【micro task queue】 微任务队列
+        // 不会放在web API处理事件，因为Promise是ES规范，不是W3C规范
+
+        // 宏任务是由浏览器规定的，
+        // 遇到宏任务（如setTimout）时,
+        // 会放在web API 处理事件等待回调,因为setTimout是是W3C规范
+        // 回调后放在【callback queue】回调队列
+        // 等待Event Loop
+    </script>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- <script src="./macro-micro.js"></script> -->
+    <script src="./macro-micro2.js"></script>
+</body>
+
+</html>
