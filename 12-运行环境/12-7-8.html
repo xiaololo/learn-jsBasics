@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12-7-8、 防抖节流</title>
+</head>
+
+<body>
+    <div>
+        <h2>第十二章 运行环境</h2>
+        <div>
+            网页加载过程
+            性能优化
+            安全
+        </div>
+        <div>
+             <!-- |--引入防抖和节流解决的问题：
+             当一个函数被频繁、无限制的被调用的时候，会加重浏览器的负担，造成浏览器卡顿的现象。
+             例如：常用浏览器滚动scroll，鼠标移动onmousemove事件触发的事件。因此引入了防抖和节流两个概念来解决这个问题。
+                
+             |--防抖：当持续触发事件时，指定时间（自定义）没有再触发事件，事件处理函数才会执行一次。如果小于指定。时间触发事件，事件处理函数不会被执行，而是以最后一次触发的事件，重新计算，即：最后时间点后指定时间，触发事件。
+             通俗理解：停止动作后（时间点）+ 自定义时间（延迟）=> 触发事件
+             |--节流：当持续触发事件时，每隔指定时间触发一次事件处理函数。当然，是你触发事件的时间小于你设置的
+                 每隔指定时间。
+             通俗解决：“匀速等距离”触发事件处理函数。
+
+            ------------------------------------------- 
+            防抖 debounce
+            监听一个输入框的，文字变化后触发change事件
+            直接用keyup事件，则会频繁触发change事件
+            防抖：用户输入结束或暂停时，才触发change事件
+
+            节流 throttle
+            拖拽一个元素是，要随时拿到该元素被拖拽的位置
+            直接用drag事件，则会频繁出发，很容易导致卡顿
+            节流：无论拖拽速度有多快，都会每隔 100ms触发一次 -->
+
+
+
+        </div>
+        <input id="input1" type="text">
+        <div id="div1" draggable="true" style="width:100px;height:100px;background:pink">可拖拽</div>
+      
+    </div>
+
+    <script>
+        
+    </script>
+    <!-- <script src="./debounce.js"></script> -->
+    <script src="./throttle.js"></script>
+</body>
+
+</html>

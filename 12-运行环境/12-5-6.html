@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12-1、上线在哪运行</title>
+</head>
+
+<body>
+    <div>
+        <h2>第十二章 运行环境</h2>
+        <div>
+            网页加载过程
+            ->前端性能优化的方式
+            安全
+        </div>
+        <div>
+            原则：
+            多使用内存、缓存或其他方法
+            减少CPU计算量，减少网络加载耗时
+            （适用于所有编程的性能优化-空间换时间）
+
+            从何入手：
+            让加载更快
+            让渲染更快
+
+            ## 让加载更快：
+            减少资源体积：
+                压缩代码：webpack配置 mode:'production'
+                图片压缩
+            减少访问次数：
+                合并代码 js文件 css文件 图片（雪碧图）
+                SSR 服务端渲染：
+                    将网页和数据一起加载，一起渲染
+                    如早先的JSP ASP PHP ,现在的vue React SSR
+                缓存：webpack配置 output.filename:'bundle.[contenthash].js',
+                    静态资源加hash后缀，根据文件内容计算hash；文件内容不变，则hash不变，则url不变；url和文件不变，则自动触发http缓存机制，返回 304
+            使用更快的网络：
+                CDN：根据区域访问运营商的IP，访问更快
+            
+            ## 让渲染更快：
+            CSS放在 head里面，JS放在body最下面
+                在渲染DOM节点前把CSS规则加载完，防止重复渲染
+                Render Tree 渲染页面时，如果遇到script，则暂停渲染， 优先加载并执行JS代码， 完成再继续
+                放在中间阻塞dom渲染
+            尽早开始执行js,用DOMContentLoaded触发：
+            <!-- window.addEventListener('load',function(){
+            //页面加载完全部资源才执行，包括图片，视频
+            })
+            window.addEventListener('DOMContentLoaded',function(){
+            //DOM渲染完即可执行，包括图片，视频可能没加载完
+            }) -->
+            懒加载，图片懒加载，上滑加载更多
+                <img id="img1" src="preview.png" data-realsrc="abc.png" alt="">
+                <script type="text/javascript">
+                    var img1=document.getElementById('img1')
+                    //判断滑动到底部的时候赋值给图片真正的src
+                    img1.src=img.getAttribute('data-realsrc')
+                </script>
+            对DOM查询进行缓存
+            频繁的ODM操作，合并到一起插入结构
+            节流throttle 防抖 debounce
+
+
+
+        </div>
+
+    </div>
+
+    <script>
+        // 线上运行环境：
+        // 运行环境即浏览器（server 端有nodejs）
+        // 浏览器功能：
+        // 下载网页代码，渲染页面，期间会执行若干JS
+        // 要保证代码再浏览器中：稳定且高效
+    </script>
+    <!-- <script src="./closureApply.js"></script> -->
+</body>
+
+</html>
