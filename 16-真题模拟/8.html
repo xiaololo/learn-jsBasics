@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object</title>
+</head>
+
+<body>
+  函数声明和函数表达式的区别
+  函数声明：function fn(){...}
+  函数表达式：const fn=function(){...}
+  函数声明会在代码执行前预加载，而函数表达式不会
+
+  new Object 和Object.create()的区别
+  {}等同于 new Object(),原型Object.prototype
+  Object.create(null)没有原型
+  Object.create({...})可以指定原型
+  <!-- <script src="./obj.js"></script> -->
+
+
+  关于this的场景题
+  this在执行的时候确定
+  <script>
+    const u={
+      a:1,
+      b:function(){
+        return this.a
+      }
+    }
+    console.log(u.b())//1 this在对象u执行，this指向U
+    const fn=u.b
+    console.log(fn())//undefined this在全局执行，指向window
+  </script>
+</body>
+
+</html>

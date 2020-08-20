@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包</title>
+</head>
+
+<body>
+  函数call和apply的区别
+  传参：
+  func.call(obj, 'C', 'D'); //参数作为列表传入
+  func.apply(obj, ['A', 'B']);//参数作为数组传入
+  用途
+  改变this的指向
+  借用别的对象的方法
+  调用函数
+  call、apply 和 bind 的区别
+  call和apply改变了函数的this上下文后便执行该函数,而bind则是返回改变了上下文后的一个函数。
+
+  事件代理（委托）是什么？
+  https://www.jianshu.com/p/178321260767
+
+
+  闭包是什么，有什么特性，有什么负面影响？
+  回顾作用域和自由变量
+  闭包应用场景：作为参数被传入，作为返回值被返回
+  https://www.jianshu.com/p/d1045d7b27b7
+
+  影响：变量会常驻内存，得不到释放，闭包不要乱用****
+
+
+
+ <script src="./scope.js"></script>
+</body>
+
+</html>

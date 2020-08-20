@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+
+<body>
+  手写字符串trim方法，保证浏览器兼容性
+  trim方法用于删除字符串的头尾空格
+
+  如何获取多个数字中的最大值
+  如何用JS实现继承？
+  class继承
+  prototype继承
+  
+
+  <script>
+    // String.prototype.trim=function(){
+    //   return this.replace(/^\s+/,'').replace(/\s+$/,'')
+    // }
+
+
+    // 函数 封装
+    function max(){
+      // arguments 类数组
+      const nums=Array.prototype.slice.call(arguments)//变为数组
+      let max=0
+      nums.forEach(item => {
+        if (item>max) {
+          max=item
+        }
+      });
+      return max
+    }
+    console.log(max(1,34,65,6,76,77))
+    // 原生方法
+    Math.max(1,34,65,6,76,77)
+    Math.min(1,34,65,6,76,77)
+
+
+
+  </script>
+</body>
+
+</html>
