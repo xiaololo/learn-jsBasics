@@ -32,6 +32,9 @@ function isEqual(obj1, obj2){
     }
     // 两个都是对象或者数组，而且不全等
     // 1.比较个数
+    // Object.keys()方法会返回一个由一个给定对象的自身可枚举属性组成的数组， 
+    // 数组中属性名的排列顺序和正常循环遍历该对象时返回的顺序一致。
+    
     const obj1keys=Object.keys(obj1)
     const obj2keys=Object.keys(obj2)
     if (obj1keys.length !== obj2keys.length) {

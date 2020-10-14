@@ -23,8 +23,7 @@
 //   currentValue： 必须。 当前元素的的值。
 //   index： 可选。 当前元素的索引。
 //   arr： 可选。 当前元素属于的数组对象。
-// 可选。 对象作为该执行回调时使用， 传递给函数， 用作 "this"
-// 的值。
+// thisIndex可选。 对象作为该执行回调时使用， 传递给函数， 用作 "this"的值。
 // 如果省略了 thisValue， 或者传入 null、 undefined， 那么回调函数的 this 为全局对象。
 
 
@@ -45,7 +44,7 @@
 // 如果该参数小于 2 或者大于 36， 则 parseInt() 将返回 NaN
 
 
-console.log([10, 20, 30].map(parseInt))
+console.log([10, 20, 30].map(parseInt)) //[10, NaN, NaN]
 
 // 拆解：
 [10, 20, 30].map((num,index)=>{

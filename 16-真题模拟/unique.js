@@ -1,13 +1,13 @@
-// function unique(arr) {
-//     const res=[]
-//     arr.forEach(item => {
-//        if (res.indexOf(item) < 0) {
-//            res.push(item)
-//        }
-//     });
-//     return res
-// }
-// unique([20, 30, 30, 50, 4, 4]) //[20, 30, 50, 4]
+function unique(arr) {
+    const res=[]
+    arr.forEach(item => {
+       if (res.indexOf(item) < 0) {
+           res.push(item)
+       }
+    });
+    return res
+}
+unique([20, 30, 30, 50, 4, 4]) //[20, 30, 50, 4]
 
 
 // 使用Set

@@ -1,6 +1,9 @@
 # Js-basics
 Summary of javascript basics
 
+#### 前端技术栈
+    基础 框架 设计模式 算法
+
 ##### 安装静态服务器
     npm install http-server -g
 
