@@ -1,5 +1,5 @@
 # Js-basics
-Summary of javascript basics
+JS基础深度剖析
 
 #### 前端技术栈
     基础 框架 设计模式 算法
